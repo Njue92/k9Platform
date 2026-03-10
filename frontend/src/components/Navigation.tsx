@@ -5,7 +5,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 import NotificationPanel from "./NotificationPanel";
-import expoLogo from "@/assets/hero-dogs.jpg";
+import expoLogo from "@/assets/expo_logo.jpg";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
