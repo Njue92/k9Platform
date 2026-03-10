@@ -1,15 +1,17 @@
 #!/bin/bash
+set -e  # Exit immediately if a command fails
 
-# Exit immediately if a command fails
-set -e
+echo "🚀 Starting Django backend deployment script for Railway..."
 
-echo "🚀 Starting Django deployment script for Railway..."
+# Ensure we're running in Railway's Linux environment
+if [[ "$RAILWAY_ENVIRONMENT" == "" ]]; then
+  echo "⚠ Warning: Not running in Railway environment. Exiting to avoid local changes."
+  exit 1
+fi
 
-# Upgrade pip
-pip install --upgrade pip
-
-# Install dependencies
+# Upgrade pip and install dependencies
 echo "📦 Installing Python packages..."
+pip install --upgrade pip
 pip install -r requirements.txt
 
 # Collect static files
@@ -20,6 +22,11 @@ python manage.py collectstatic --noinput
 echo "🛠 Applying database migrations..."
 python manage.py migrate
 
-# Start Django using Gunicorn (Railway provides $PORT)
-echo "🎯 Starting Gunicorn server..."
+# Start Gunicorn using Railway-provided $PORT
+if [[ -z "$PORT" ]]; then
+  echo "⚠ Error: $PORT not set. Railway automatically provides this port."
+  exit 1
+fi
+
+echo "🎯 Starting Gunicorn server on port $PORT..."
 exec gunicorn k9platform.wsgi:application --bind 0.0.0.0:$PORT
