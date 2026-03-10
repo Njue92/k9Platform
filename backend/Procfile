@@ -1,1 +1,1 @@
-web: gunicorn k9Platform.wsgi:application
+web: gunicorn backend.wsgi:application
