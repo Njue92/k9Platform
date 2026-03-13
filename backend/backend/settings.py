@@ -161,7 +161,8 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10 MB
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS settings - Allow all origins in development
-CORS_ALLOW_ALL_ORIGINS = DEBUG  # Allow all origins when DEBUG=True
+CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = DEBUG  # Allow all origins when DEBUG=True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
