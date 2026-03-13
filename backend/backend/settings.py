@@ -194,6 +194,12 @@ CORS_ALLOW_METHODS = [
     "DELETE",
     "OPTIONS",
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:8080",
+    "https://dogs-detection-expo-frontend.up.railway.app",
+    "https://dogs-detection-expo-backend.up.railway.app",
+]
 # REST Framework settings
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
