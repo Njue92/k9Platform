@@ -169,6 +169,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:5173",
     "http://127.0.0.1:3000",
+    "https://expok9vault.up.railway.app",
     "https://dogs-detection-expo-frontend.up.railway.app",
     "https://dogs-detection-expo-backend.up.railway.app",
 ]
