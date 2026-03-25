@@ -199,6 +199,7 @@ CORS_ALLOW_METHODS = [
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8080",
+    "https://expok9vault.up.railway.app",
     "https://dogs-detection-expo-frontend.up.railway.app",
     "https://dogs-detection-expo-backend.up.railway.app",
 ]
